@@ -1,4 +1,4 @@
-baseURL = "https://slen-fullstack.github.io/stephanies-kitchen-/"
+baseURL = "https://slen-fullstack.github.io/stephanies-kitchen/"
 locale = "en-us"
 title = "Stephanie's Kitchen"
 disableKinds = ["taxonomy", "term"]
