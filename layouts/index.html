@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ $recipes := where site.RegularPages "Section" "recipes" }}
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="hello">hi friend, come on in!</p>
+      <h1>Stephanie's <span>Kitchen</span></h1>
+      <p class="tagline">{{ site.Params.tagline }}</p>
+      <label class="search" for="recipe-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="sr-only">Search recipes</span>
+        <input id="recipe-search" type="search" placeholder="Search a recipe or ingredient…" autocomplete="off">
+      </label>
+      <p class="search-status" id="search-status" aria-live="polite"></p>
+    </div>
+    <div class="hero-art">{{ partial "butter.html" (dict "class" "hero-butter") }}</div>
+  </div>
+</section>
+<div class="gingham" aria-hidden="true"></div>
+
+<section class="wrap shelf-section" id="shelf">
+  <div class="section-head">
+    <h2>The recipe shelf</h2>
+    <p class="hand">Pull a book off the shelf to open it.</p>
+  </div>
+  {{ if site.Params.sampleRecipes }}<p class="sample-note">Psst! These are sample recipes. Swap in your own anytime.</p>{{ end }}
+  {{ partial "bookcase.html" $recipes }}
+</section>
+
+<section class="wrap recent">
+  <div class="section-head">
+    <h2>Fresh from the oven</h2>
+    <p class="hand">The newest recipes on the shelf.</p>
+  </div>
+  <div class="card-grid">
+    {{ range first 3 $recipes.ByDate.Reverse }}{{ partial "card.html" . }}{{ end }}
+  </div>
+</section>
+{{ partial "book-dialog.html" . }}
+{{ end }}

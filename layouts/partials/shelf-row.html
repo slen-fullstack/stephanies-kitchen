@@ -1,0 +1,25 @@
+{{ $palette := slice "#F6C9C2" "#CFE3C6" "#C9DCEB" "#F3D58A" "#E9C9E3" "#F4B988" }}
+<div class="shelf">
+  <p class="shelf-label"><span>{{ .name }}</span><small>{{ len .books }}</small></p>
+  <div class="shelf-books">
+    {{ range .books.ByTitle }}
+      {{ $p := . }}
+      {{ $n := len $p.Title }}
+      {{ $color := $p.Params.color | default (index $palette (mod $n (len $palette))) }}
+      {{ $h := add 160 (mul (mod $n 4) 13) }}
+      {{ $w := add 46 (mul (mod $n 3) 6) }}
+      {{ $slug := $p.File.ContentBaseName | urlize }}
+      {{ $search := print $p.Title " " $p.Params.category }}
+      {{ range $p.Params.ingredients }}{{ $search = print $search " " .item }}{{ end }}
+      <a class="spine" href="{{ $p.RelPermalink }}" data-recipe="{{ $slug }}" data-search="{{ lower $search }}" style="{{ printf "--spine:%s;--h:%dpx;--w:%dpx" $color $h $w | safeCSS }}">
+        <span class="spine-title">{{ $p.Title }}</span>
+        <span class="spine-icon" aria-hidden="true">{{ $p.Params.icon | default "🧈" }}</span>
+      </a>
+      <template id="book-{{ $slug }}">{{ partial "book.html" $p }}</template>
+    {{ else }}
+      <p class="empty-shelf">Nothing on this shelf yet!</p>
+    {{ end }}
+    <span class="bookend" aria-hidden="true"></span>
+    {{ with .deco }}<span class="shelf-deco" aria-hidden="true">{{ . }}</span>{{ end }}
+  </div>
+</div>

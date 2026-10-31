@@ -1,0 +1,10 @@
+{{ $recipes := . }}
+{{ $decos := slice "🪴" "🫙" "☕" "🧁" "🌼" }}
+<div class="bookcase">
+  {{ range $i, $name := site.Params.shelves }}
+    {{ partial "shelf-row.html" (dict "name" $name "books" (where $recipes "Params.category" $name) "deco" (index $decos (mod $i (len $decos)))) }}
+  {{ end }}
+  {{ with where $recipes "Params.category" "not in" site.Params.shelves }}
+    {{ partial "shelf-row.html" (dict "name" "More goodies" "books" . "deco" "🌼") }}
+  {{ end }}
+</div>

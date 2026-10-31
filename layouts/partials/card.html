@@ -1,0 +1,11 @@
+{{ $p := . }}
+<a class="card" href="{{ $p.RelPermalink }}" data-recipe="{{ $p.File.ContentBaseName | urlize }}">
+  <span class="card-art" style="{{ printf "--spine:%s" ($p.Params.color | default "#F3D58A") | safeCSS }}">
+    {{ with $p.Params.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ $p.Params.icon | default "🧈" }}</span>{{ end }}
+  </span>
+  <span class="card-body">
+    {{ with $p.Params.category }}<span class="eyebrow">{{ . }}</span>{{ end }}
+    <span class="card-title">{{ $p.Title }}</span>
+    <span class="card-meta">{{ with $p.Params.prep }}{{ . }} prep{{ end }}{{ with $p.Params.cook }} · {{ . }} cook{{ end }}</span>
+  </span>
+</a>

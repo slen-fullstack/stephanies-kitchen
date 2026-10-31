@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $recipes := .RegularPages }}
+<section class="wrap page-intro">
+  <h1>All recipes</h1>
+  <p class="hand">{{ len $recipes }} recipes and counting.</p>
+</section>
+<section class="wrap all-recipes">
+  {{ range site.Params.shelves }}
+    {{ $name := . }}
+    {{ with where $recipes "Params.category" $name }}
+    <h2 class="group-head">{{ $name }}</h2>
+    <div class="card-grid">{{ range .ByTitle }}{{ partial "card.html" . }}{{ end }}</div>
+    {{ end }}
+  {{ end }}
+  {{ with where $recipes "Params.category" "not in" site.Params.shelves }}
+    <h2 class="group-head">More goodies</h2>
+    <div class="card-grid">{{ range .ByTitle }}{{ partial "card.html" . }}{{ end }}</div>
+  {{ end }}
+</section>
+{{ end }}

@@ -1,0 +1,29 @@
+baseURL = "https://slen-fullstack.github.io/stephanies-kitchen-/"
+locale = "en-us"
+title = "Stephanie's Kitchen"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "Made with love and real butter."
+  description = "Stephanie's recipe shelf: cozy breakfasts, easy dinners and buttery desserts."
+  # The shelves on the homepage, top to bottom. Each recipe picks one.
+  shelves = ["Breakfast", "Mains", "Sides & Snacks", "Desserts"]
+  # Shows a little note that the starter recipes are samples. Set to false once you add your own.
+  sampleRecipes = true
+
+[menus]
+  [[menus.main]]
+    name = "Shelf"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "All recipes"
+    pageRef = "/recipes"
+    weight = 20
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 30
+
+[markup.goldmark.renderer]
+  unsafe = true

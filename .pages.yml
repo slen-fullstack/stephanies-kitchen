@@ -1,0 +1,64 @@
+# Visual editor settings for Pages CMS (https://app.pagescms.org).
+# Add and edit recipes with a form, no code needed.
+
+media:
+  input: static/images
+  output: /images
+  categories: [image]
+
+content:
+  - name: recipes
+    label: Recipes
+    type: collection
+    path: content/recipes
+    filename: "{primary}.md"
+    exclude: [_index.md]
+    view:
+      fields: [title, category, date]
+      primary: title
+      sort: [date, title]
+    fields:
+      - { name: title, label: Recipe name, type: string, required: true }
+      - { name: date, label: Date added, type: date }
+      - name: category
+        label: Shelf
+        type: select
+        options:
+          values: ["Breakfast", "Mains", "Sides & Snacks", "Desserts"]
+      - { name: blurb, label: "Short description (one line)", type: string }
+      - { name: image, label: "Photo (optional)", type: image }
+      - { name: icon, label: "Little picture if there's no photo (paste one emoji)", type: string }
+      - name: color
+        label: Book color
+        type: select
+        options:
+          values:
+            - { value: "#F3D58A", label: "Butter yellow" }
+            - { value: "#F6C9C2", label: "Strawberry milk" }
+            - { value: "#CFE3C6", label: "Pistachio" }
+            - { value: "#C9DCEB", label: "Blueberry milk" }
+            - { value: "#E9C9E3", label: "Lavender" }
+            - { value: "#F4B988", label: "Apricot" }
+      - { name: prep, label: "Prep time (e.g. 10 min)", type: string }
+      - { name: cook, label: "Cook time (e.g. 25 min)", type: string }
+      - { name: servings, label: "How many it makes (a number)", type: number }
+      - { name: servingsLabel, label: "What it makes (servings, cookies, muffins…)", type: string }
+      - name: ingredients
+        label: Ingredients
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.qty} {fields.unit} {fields.item}" } }
+        fields:
+          - { name: qty, label: "Amount as a number (0.5 = ½). Leave empty for 'to taste'", type: number }
+          - { name: unit, label: "Unit (cup, tbsp, tsp, oz…)", type: string }
+          - { name: item, label: Ingredient, type: string }
+      - { name: steps, label: Steps, type: text, list: true }
+      - { name: body, label: "Stephanie's note (optional)", type: rich-text }
+      - { name: draft, label: "Hide this recipe (draft)", type: boolean }
+
+  - name: about
+    label: About page
+    type: file
+    path: content/about.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: body, label: Text, type: rich-text }

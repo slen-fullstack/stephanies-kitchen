@@ -1,0 +1,36 @@
+{{ $p := . }}
+{{ $color := $p.Params.color | default "#F3D58A" }}
+<article class="book" data-base="{{ $p.Params.servings | default 1 }}" style="{{ printf "--spine:%s" $color | safeCSS }}">
+  <div class="page page-left">
+    <div class="book-art">
+      {{ with $p.Params.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $p.Title }}" loading="lazy">{{ else }}<span class="art-icon" aria-hidden="true">{{ $p.Params.icon | default "🧈" }}</span>{{ end }}
+    </div>
+    {{ with $p.Params.category }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h2 class="book-title">{{ $p.Title }}</h2>
+    {{ with $p.Params.blurb }}<p class="blurb">{{ . }}</p>{{ end }}
+    <dl class="facts">
+      {{ with $p.Params.prep }}<div><dt>Prep</dt><dd>{{ . }}</dd></div>{{ end }}
+      {{ with $p.Params.cook }}<div><dt>Cook</dt><dd>{{ . }}</dd></div>{{ end }}
+      {{ with $p.Params.servings }}<div><dt>Makes</dt><dd><span class="serv-count">{{ . }}</span> {{ $p.Params.servingsLabel | default "servings" }}</dd></div>{{ end }}
+    </dl>
+    {{ with $p.Params.servings }}
+    <div class="scaler" role="group" aria-label="Scale the recipe">
+      <button type="button" class="scale-btn" data-dir="-1" aria-label="Make less">−</button>
+      <span class="scale-label">Make more or less</span>
+      <button type="button" class="scale-btn" data-dir="1" aria-label="Make more">+</button>
+    </div>
+    {{ end }}
+    {{ with $p.Content }}<aside class="note"><p class="note-label">Stephanie's note</p>{{ . }}</aside>{{ end }}
+  </div>
+  <div class="page page-right">
+    <h3 class="page-head">Ingredients</h3>
+    <ul class="ingredients">
+      {{ range $p.Params.ingredients }}<li><label><input type="checkbox"><span class="ing-text">{{ with .qty }}<span class="qty" data-qty="{{ . }}">{{ . }}</span> {{ end }}{{ with .unit }}{{ . }} {{ end }}{{ .item }}</span></label></li>{{ end }}
+    </ul>
+    <h3 class="page-head">Steps</h3>
+    <ol class="steps">
+      {{ range $p.Params.steps }}<li>{{ . | markdownify }}</li>{{ end }}
+    </ol>
+    <p class="page-end">Happy cooking!</p>
+  </div>
+</article>

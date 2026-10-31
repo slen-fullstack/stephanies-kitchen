@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="wrap recipe-page">
+  <nav class="crumbs" aria-label="Recipe actions">
+    <a href="{{ "/" | relURL }}#shelf">← Back to the shelf</a>
+    <button type="button" class="pill-btn" data-print>Print recipe card</button>
+  </nav>
+  {{ partial "book.html" . }}
+</div>
+{{ end }}
