@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
   # The shelves on the homepage, top to bottom. Each recipe picks one.
   shelves = ["Breakfast", "Mains", "Sides & Snacks", "Desserts"]
   # Shows a little note that the starter recipes are samples. Set to false once you add your own.
-  sampleRecipes = true
+  sampleRecipes = false
 
 [menus]
   [[menus.main]]

@@ -10,7 +10,7 @@ Making the token (once, free): GitHub → Settings → Developer settings → Pe
 
 **Or** use https://app.pagescms.org (sign in with GitHub, pick this repo, open **Recipes**).
 
-The 8 starter recipes are samples. Edit or delete them anytime. When they're all yours, set `sampleRecipes = false` in `hugo.toml` to hide the "sample recipes" note.
+The 8 original sample recipes were removed; they are still in the git history (commit 086fdba) if you ever want one back.
 
 ## Where things live
 

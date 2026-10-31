@@ -6,6 +6,7 @@
   <span class="card-body">
     {{ with $p.Params.category }}<span class="eyebrow">{{ . }}</span>{{ end }}
     <span class="card-title">{{ $p.Title }}</span>
-    <span class="card-meta">{{ with $p.Params.prep }}{{ . }} prep{{ end }}{{ with $p.Params.cook }} · {{ . }} cook{{ end }}</span>
+    {{ $meta := slice }}{{ with $p.Params.prep }}{{ $meta = $meta | append (print . " prep") }}{{ end }}{{ with $p.Params.cook }}{{ $meta = $meta | append (print . " cook") }}{{ end }}
+    {{ with $meta }}<span class="card-meta">{{ delimit . " · " }}</span>{{ end }}
   </span>
 </a>
