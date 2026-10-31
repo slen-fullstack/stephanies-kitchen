@@ -17,6 +17,8 @@
   --shadow: rgba(90, 58, 24, .2);
   --spine-ink: #3B2A1C;
   --on-backdrop: #FFF6DA;
+  --board: #E9D3A4;
+  --board-hole: #C9AE78;
   --f-display: "Young Serif", Georgia, "Times New Roman", serif;
   --f-hand: "Gochi Hand", "Bradley Hand", "Comic Sans MS", cursive;
   --f-body: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -26,14 +28,14 @@
     --butter: #EED37A; --butter-deep: #D9B54A; --cream: #1E1811; --paper: #2B2219;
     --ink: #F6ECD4; --ink-soft: #C8B596; --line: #45382A; --wood: #9B6B41; --wood-dark: #6A4426;
     --wall: #2A2016; --wall-shade: #211910; --berry: #F09484; --hero-bg: #3A2E17; --hero-ink: #F8E7A8;
-    --shadow: rgba(0, 0, 0, .5); color-scheme: dark;
+    --shadow: rgba(0, 0, 0, .5); --board: #3B2E1F; --board-hole: #22190F; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --butter: #EED37A; --butter-deep: #D9B54A; --cream: #1E1811; --paper: #2B2219;
   --ink: #F6ECD4; --ink-soft: #C8B596; --line: #45382A; --wood: #9B6B41; --wood-dark: #6A4426;
   --wall: #2A2016; --wall-shade: #211910; --berry: #F09484; --hero-bg: #3A2E17; --hero-ink: #F8E7A8;
-  --shadow: rgba(0, 0, 0, .5); color-scheme: dark;
+  --shadow: rgba(0, 0, 0, .5); --board: #3B2E1F; --board-hole: #22190F; color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -338,3 +340,40 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15;
 }
 .edit-link { font-family: var(--f-body); font-size: .85rem; font-weight: 700; opacity: .7; }
 .edit-link:hover { opacity: 1; }
+
+/* Favourite tools: cards hanging on a pegboard */
+.tools { padding-block: 40px 8px; }
+.pegboard {
+  padding: 34px 26px 30px;
+  border-radius: 12px;
+  background-color: var(--board);
+  background-image: radial-gradient(circle, var(--board-hole) 3px, transparent 3.6px);
+  background-size: 26px 26px;
+  background-position: 13px 13px;
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--board-hole) 70%, transparent), 0 18px 30px -22px var(--shadow);
+}
+.tool-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 34px 22px; }
+.tool {
+  position: relative; max-width: 260px;
+  padding: 26px 18px 18px; text-align: center;
+  background: var(--paper); color: var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 10px 18px -10px var(--shadow);
+  transform: rotate(-1.5deg); transform-origin: 50% -14px;
+  transition: transform .4s cubic-bezier(.2, .8, .3, 1.4);
+}
+.tool:nth-child(even) { transform: rotate(1.5deg); }
+.tool:hover { transform: rotate(0deg); }
+.tool::before {
+  content: ""; position: absolute; top: -16px; left: 50%; width: 14px; height: 14px; transform: translateX(-50%);
+  border-radius: 50%; background: var(--wood-dark); box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+}
+.tool::after {
+  content: ""; position: absolute; top: 9px; left: 50%; width: 10px; height: 10px; transform: translateX(-50%);
+  border-radius: 50%; background: var(--board); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+}
+.tool-art { display: grid; place-items: center; width: 84px; height: 84px; margin: 4px auto 10px; border-radius: 50%; overflow: hidden; font-size: 46px; background: color-mix(in srgb, var(--butter) 45%, var(--paper)); }
+.tool-art img { width: 100%; height: 100%; object-fit: cover; }
+.tool-name { font-size: 1.2rem; }
+.tool-note { margin: 6px 0 0; font-size: .95rem; color: var(--ink-soft); }
+.tool-link { display: inline-block; margin-top: 10px; font-weight: 700; font-size: .9rem; }

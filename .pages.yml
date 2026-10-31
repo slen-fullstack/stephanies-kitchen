@@ -62,3 +62,20 @@ content:
     fields:
       - { name: title, label: Title, type: string }
       - { name: body, label: Text, type: rich-text }
+
+  - name: tools
+    label: My favourite tools
+    type: file
+    path: data/tools.yaml
+    format: yaml
+    fields:
+      - name: tools
+        label: Tools
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.name}" } }
+        fields:
+          - { name: name, label: Tool name, type: string }
+          - { name: note, label: Short note, type: string }
+          - { name: icon, label: "Little picture if there's no photo (paste one emoji)", type: string }
+          - { name: image, label: "Photo (optional)", type: image }
+          - { name: link, label: "Where to get it (optional)", type: string }

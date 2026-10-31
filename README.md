@@ -19,6 +19,7 @@ The 8 starter recipes are samples. Edit or delete them anytime. When they're all
 | Site name, tagline, shelf names | `hugo.toml` |
 | Recipes | `content/recipes/*.md` (one file per recipe) |
 | About page | `content/about.md` |
+| Favourite tools | `data/tools.yaml` (or /admin → Pages → My favourite tools) |
 | Photos | `static/images/` |
 | Styles | `assets/css/main.css` |
 | Bookshelf and book pop-up code | `assets/js/main.js` |

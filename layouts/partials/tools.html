@@ -1,0 +1,22 @@
+{{ with site.Data.tools.tools }}
+<section class="wrap tools" id="tools">
+  <div class="section-head">
+    <h2>My favourite tools</h2>
+    <p class="hand">The things I reach for every day.</p>
+  </div>
+  <div class="pegboard">
+    <ul class="tool-grid">
+      {{ range . }}
+      <li class="tool">
+        <span class="tool-art">
+          {{ with .image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ .icon | default "🥄" }}</span>{{ end }}
+        </span>
+        <h3 class="tool-name">{{ .name }}</h3>
+        {{ with .note }}<p class="tool-note">{{ . }}</p>{{ end }}
+        {{ with .link }}<a class="tool-link" href="{{ . }}" target="_blank" rel="noopener">Where to get it →</a>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

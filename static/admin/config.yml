@@ -67,6 +67,21 @@ collections:
   - name: pages
     label: Pages
     files:
+      - name: tools
+        label: My favourite tools
+        file: data/tools.yaml
+        fields:
+          - name: tools
+            label: Tools
+            label_singular: Tool
+            widget: list
+            summary: "{{name}}"
+            fields:
+              - { name: name, label: Tool name, widget: string }
+              - { name: note, label: Short note, widget: string, required: false }
+              - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false }
+              - { name: image, label: Photo (optional), widget: image, required: false }
+              - { name: link, label: "Where to get it (a web address, optional)", widget: string, required: false }
       - name: about
         label: About page
         file: content/about.md
