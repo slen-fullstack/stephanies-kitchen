@@ -336,3 +336,5 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15;
 @media (min-width: 880px) {
   .bookcase { grid-template-columns: 1fr 1fr; }
 }
+.edit-link { font-family: var(--f-body); font-size: .85rem; font-weight: 700; opacity: .7; }
+.edit-link:hover { opacity: 1; }

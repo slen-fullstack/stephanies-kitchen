@@ -1,0 +1,75 @@
+# Recipe editor at /admin (Sveltia CMS). Sign in with a GitHub token.
+backend:
+  name: github
+  repo: slen-fullstack/stephanies-kitchen
+  branch: main
+  auth_methods: [token]
+
+site_url: https://slen-fullstack.github.io/stephanies-kitchen/
+display_url: https://slen-fullstack.github.io/stephanies-kitchen/
+
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: recipes
+    label: Recipes
+    label_singular: Recipe
+    folder: content/recipes
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} · {{category}}"
+    sortable_fields: [title, date, category]
+    fields:
+      - { name: title, label: Recipe name, widget: string }
+      - { name: date, label: Date added, widget: datetime, required: false }
+      - name: category
+        label: Shelf
+        widget: select
+        options: ["Breakfast", "Mains", "Sides & Snacks", "Desserts"]
+      - { name: blurb, label: Short description (one line), widget: string, required: false }
+      - { name: image, label: Photo (optional), widget: image, required: false }
+      - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false, default: "🧁" }
+      - name: color
+        label: Book color
+        widget: select
+        default: "#F3D58A"
+        options:
+          - { label: "Butter yellow", value: "#F3D58A" }
+          - { label: "Strawberry milk", value: "#F6C9C2" }
+          - { label: "Pistachio", value: "#CFE3C6" }
+          - { label: "Blueberry milk", value: "#C9DCEB" }
+          - { label: "Lavender", value: "#E9C9E3" }
+          - { label: "Apricot", value: "#F4B988" }
+      - { name: prep, label: "Prep time (e.g. 10 min)", widget: string, required: false }
+      - { name: cook, label: "Cook time (e.g. 25 min)", widget: string, required: false }
+      - { name: servings, label: How many it makes (a number), widget: number, value_type: int, required: false }
+      - { name: servingsLabel, label: "What it makes (servings, cookies, muffins…)", widget: string, required: false, default: "servings" }
+      - name: ingredients
+        label: Ingredients
+        label_singular: Ingredient
+        widget: list
+        summary: "{{qty}} {{unit}} {{item}}"
+        fields:
+          - { name: qty, label: "Amount (0.5 = ½, leave empty for 'to taste')", widget: number, value_type: float, required: false }
+          - { name: unit, label: "Unit (cup, tbsp, tsp, oz…)", widget: string, required: false }
+          - { name: item, label: Ingredient, widget: string }
+      - name: steps
+        label: Steps
+        label_singular: Step
+        widget: list
+        field: { name: step, label: Step, widget: text }
+      - { name: body, label: "Stephanie's note (optional)", widget: markdown, required: false }
+      - { name: draft, label: Hide this recipe (draft), widget: boolean, required: false, default: false }
+
+  - name: pages
+    label: Pages
+    files:
+      - name: about
+        label: About page
+        file: content/about.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: body, label: Text, widget: markdown }
