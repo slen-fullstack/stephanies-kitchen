@@ -53,3 +53,12 @@ items:
     image: /images/8CBF4388-A859-405A-9B69-7681097AC1EB_1_201_a.jpeg
     icon: 🍣
     link: ''
+  - restaurant: Danbo Ramen
+    order: Miso Ramen, or Classic Tonkatsu Ramen
+    location: Downtown or UBC Endowment Lands
+    rating: 4
+    price: $12.99
+    note: Downtown Location Long time, Better taste. UBC Short wait, reliable.
+    image: /images/BD40462D-E627-4A76-A678-815BC97793E0_1_105_c.jpeg
+    icon: 🍜
+    link: ''
