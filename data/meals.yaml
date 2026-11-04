@@ -9,3 +9,13 @@ items:
     icon: 🍚
     link: ''
     example: false
+  - name: French Onion Soup
+    brand: Cuisine Adventure
+    store: Costco
+    rating: 5
+    price: $11.99
+    note: '- 6 Packs'
+    image: /images/Costco_French_Onion_Soup_FI.jpg
+    icon: 🥣
+    link: ''
+    example: false
