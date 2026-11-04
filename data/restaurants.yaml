@@ -35,3 +35,21 @@ items:
     image: /images/431CEE6C-9BA4-41B8-8660-F7A170500596_1_102_o.jpeg
     icon: 🍣
     link: ''
+  - restaurant: H-Mart Japanese Food
+    order: Salmon Nigiri and Buttery Sashimi
+    location: Downtown
+    rating: 5
+    price: $16.99
+    note: ''
+    image: /images/C57DBA0E-40C3-4588-B324-FA585580CDF2_1_102_o.jpeg
+    icon: ''
+    link: ''
+  - restaurant: Koi Sushi
+    order: Salmon Avocado Roll, Salmon Sashimi, Yam Avocado Roll
+    location: UBC Endownment Lands
+    rating: 5
+    price: $17.99
+    note: '- 3 choices combination'
+    image: /images/8CBF4388-A859-405A-9B69-7681097AC1EB_1_201_a.jpeg
+    icon: 🍣
+    link: ''
