@@ -29,3 +29,13 @@ items:
     icon: ''
     link: ''
     example: false
+  - name: Pork Cutlet Katsu/ w Miso Soup & Sesame Cabbage
+    brand: Katsu San
+    store: ''
+    rating: 5
+    price: $21
+    note: ''
+    image: /images/6f6f3e11-b6f0-441f-9685-67cf8c76256b.jpeg
+    icon: ''
+    link: ''
+    example: false
