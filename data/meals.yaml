@@ -8,7 +8,7 @@ items:
     image: /images/DCB61F9B-C8D7-47BD-AD4A-F4454AD3D7AC_1_105_c.jpeg
     icon: 🍚
     link: ''
-    example: true
+    example: false
   - name: Rose Pasta
     brand: Joe's Deli
     store: ''
@@ -17,5 +17,15 @@ items:
     note: ''
     image: /images/9223A6FD-F3E0-45D3-B3DD-0AF7D4B386D1_1_105_c.jpeg
     icon: 🍝
+    link: ''
+    example: false
+  - name: IKEA Swedish Meatballs w/ Cured Salmon, Diahm cake, and Lingonberry Juice
+    brand: ''
+    store: IKEA Resturaunt
+    rating: 5
+    price: $22
+    note: ''
+    image: /images/IMG_3776.jpeg
+    icon: ''
     link: ''
     example: false
