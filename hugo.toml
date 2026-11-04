@@ -21,6 +21,10 @@ disableKinds = ["taxonomy", "term"]
     pageRef = "/recipes"
     weight = 20
   [[menus.main]]
+    name = "Favourite finds"
+    pageRef = "/finds"
+    weight = 25
+  [[menus.main]]
     name = "About"
     pageRef = "/about"
     weight = 30

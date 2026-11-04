@@ -1,0 +1,18 @@
+{{ $palette := slice "#F6C9C2" "#CFE3C6" "#C9DCEB" "#F3D58A" "#E9C9E3" "#F4B988" }}
+{{ $it := .item }}
+<li class="find find--{{ .kind }}" style="{{ printf "--lid:%s" (index $palette (mod .i (len $palette))) | safeCSS }}">
+  {{ if $it.example }}<span class="example-tag">Example</span>{{ end }}
+  <span class="find-art">
+    {{ with $it.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ $it.icon | default .icon }}</span>{{ end }}
+  </span>
+  <div class="find-body">
+    {{ with $it.brand }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h3 class="find-name">{{ $it.name }}</h3>
+    {{ with $it.rating }}{{ $r := int (math.Min 5 (math.Max 0 (int .))) }}<p class="stars" aria-label="{{ $r }} out of 5 stars"><span aria-hidden="true">{{ strings.Repeat $r "★" }}<span class="stars-off">{{ strings.Repeat (sub 5 $r) "★" }}</span></span></p>{{ end }}
+    {{ with $it.note }}<p class="find-note">{{ . }}</p>{{ end }}
+    {{ if or $it.store $it.price }}
+    <p class="find-meta">{{ with $it.store }}<span>From {{ . }}</span>{{ end }}{{ with $it.price }}<span class="price-tag">{{ . }}</span>{{ end }}</p>
+    {{ end }}
+    {{ with $it.link }}<a class="find-link" href="{{ . }}" target="_blank" rel="noopener">Where to get it →</a>{{ end }}
+  </div>
+</li>

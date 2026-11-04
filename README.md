@@ -19,7 +19,8 @@ The 8 original sample recipes were removed; they are still in the git history (c
 | Site name, tagline, shelf names | `hugo.toml` |
 | Recipes | `content/recipes/*.md` (one file per recipe) |
 | About page | `content/about.md` |
-| Favourite tools | `data/tools.yaml` (or /admin → Pages → My favourite tools) |
+| Favourite finds page | `content/finds.md`, layout in `layouts/_default/finds.html` |
+| Favourite premade meals / drinks / tools | `data/meals.yaml`, `data/drinks.yaml`, `data/tools.yaml` (or /admin → Pages) |
 | Photos | `static/images/` |
 | Styles | `assets/css/main.css` |
 | Bookshelf and book pop-up code | `assets/js/main.js` |

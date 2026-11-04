@@ -1,0 +1,17 @@
+<section class="wrap finds-section" id="{{ .id }}">
+  <div class="section-head">
+    <h2>{{ .title }}</h2>
+    <p class="hand">{{ .sub }}</p>
+  </div>
+  <div class="appliance appliance--{{ .kind }}">
+    <div class="appliance-inner">
+      {{ with .items }}
+      <ul class="find-grid">
+        {{ range $i, $it := . }}{{ partial "find-card.html" (dict "item" $it "i" $i "kind" $.kind "icon" $.icon) }}{{ end }}
+      </ul>
+      {{ else }}
+      <p class="empty-shelf">{{ .empty }}</p>
+      {{ end }}
+    </div>
+  </div>
+</section>

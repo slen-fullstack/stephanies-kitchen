@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="wrap page-intro">
+  <h1>Favourite finds</h1>
+  <p class="hand">Everything I buy again and again.</p>
+  <nav class="jump-chips" aria-label="Jump to a section">
+    <a href="#meals">Premade meals</a>
+    <a href="#drinks">Premade drinks</a>
+    <a href="#tools">Tools</a>
+  </nav>
+</section>
+
+{{ partial "find-section.html" (dict "id" "meals" "kind" "fridge" "icon" "🍱" "title" "Premade meals" "sub" "Ready in minutes, loved forever." "items" site.Data.meals.items "empty" "Nothing in the fridge yet. Add your first meal in the editor!") }}
+
+{{ partial "find-section.html" (dict "id" "drinks" "kind" "cooler" "icon" "🧃" "title" "Premade drinks" "sub" "Always stocked in my fridge door." "items" site.Data.drinks.items "empty" "The cooler is empty. Add your first drink in the editor!") }}
+
+{{ partial "tools.html" . }}
+<div class="finds-end"></div>
+{{ end }}

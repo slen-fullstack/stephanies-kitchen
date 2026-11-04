@@ -1,0 +1,11 @@
+items:
+  - name: Iced Oat Latte
+    brand: Brand name
+    store: Grocery store
+    rating: 4
+    price: "$3.49"
+    note: "This is an example. Edit or delete it in the editor!"
+    icon: 🧋
+    image: ""
+    link: ""
+    example: true

@@ -79,3 +79,47 @@ content:
           - { name: icon, label: "Little picture if there's no photo (paste one emoji)", type: string }
           - { name: image, label: "Photo (optional)", type: image }
           - { name: link, label: "Where to get it (optional)", type: string }
+
+  - name: meals
+    label: Favourite premade meals
+    type: file
+    path: data/meals.yaml
+    format: yaml
+    fields:
+      - name: items
+        label: Items
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.name}" } }
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: brand, label: Brand, type: string }
+          - { name: store, label: "Where you buy it", type: string }
+          - { name: rating, label: "Rating (1 to 5)", type: number }
+          - { name: price, label: "Price (optional)", type: string }
+          - { name: note, label: Short note, type: string }
+          - { name: image, label: "Photo (optional)", type: image }
+          - { name: icon, label: "Emoji if no photo", type: string }
+          - { name: link, label: "Where to get it (optional)", type: string }
+          - { name: example, label: "Example item", type: boolean }
+
+  - name: drinks
+    label: Favourite premade drinks
+    type: file
+    path: data/drinks.yaml
+    format: yaml
+    fields:
+      - name: items
+        label: Items
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.name}" } }
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: brand, label: Brand, type: string }
+          - { name: store, label: "Where you buy it", type: string }
+          - { name: rating, label: "Rating (1 to 5)", type: number }
+          - { name: price, label: "Price (optional)", type: string }
+          - { name: note, label: Short note, type: string }
+          - { name: image, label: "Photo (optional)", type: image }
+          - { name: icon, label: "Emoji if no photo", type: string }
+          - { name: link, label: "Where to get it (optional)", type: string }
+          - { name: example, label: "Example item", type: boolean }

@@ -67,6 +67,46 @@ collections:
   - name: pages
     label: Pages
     files:
+      - name: meals
+        label: Favourite premade meals
+        file: data/meals.yaml
+        fields:
+          - name: items
+            label: Meals
+            label_singular: Item
+            widget: list
+            summary: "{{name}} · {{brand}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: brand, label: Brand, widget: string, required: false }
+              - { name: store, label: "Where you buy it (e.g. Costco)", widget: string, required: false }
+              - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
+              - { name: price, label: "Price (e.g. $6.99, optional)", widget: string, required: false }
+              - { name: note, label: Short note, widget: string, required: false }
+              - { name: image, label: Photo (optional), widget: image, required: false }
+              - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false }
+              - { name: link, label: "Where to get it (a web address, optional)", widget: string, required: false }
+              - { name: example, label: "Example item (shows an 'Example' tag)", widget: boolean, required: false, default: false }
+      - name: drinks
+        label: Favourite premade drinks
+        file: data/drinks.yaml
+        fields:
+          - name: items
+            label: Drinks
+            label_singular: Item
+            widget: list
+            summary: "{{name}} · {{brand}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: brand, label: Brand, widget: string, required: false }
+              - { name: store, label: "Where you buy it (e.g. Costco)", widget: string, required: false }
+              - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
+              - { name: price, label: "Price (e.g. $6.99, optional)", widget: string, required: false }
+              - { name: note, label: Short note, widget: string, required: false }
+              - { name: image, label: Photo (optional), widget: image, required: false }
+              - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false }
+              - { name: link, label: "Where to get it (a web address, optional)", widget: string, required: false }
+              - { name: example, label: "Example item (shows an 'Example' tag)", widget: boolean, required: false, default: false }
       - name: tools
         label: My favourite tools
         file: data/tools.yaml

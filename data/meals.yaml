@@ -1,0 +1,11 @@
+items:
+  - name: Butter Chicken with Rice
+    brand: Brand name
+    store: Grocery store
+    rating: 5
+    price: "$6.99"
+    note: "This is an example. Edit or delete it in the editor!"
+    icon: 🍛
+    image: ""
+    link: ""
+    example: true
