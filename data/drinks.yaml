@@ -1,11 +1,11 @@
 items:
-  - name: Iced Oat Latte
-    brand: Brand name
-    store: Grocery store
-    rating: 4
-    price: "$3.49"
-    note: "This is an example. Edit or delete it in the editor!"
+  - name: Yakult
+    brand: Cool Plus Cultured Dairy Beverage
+    store: Costco
+    rating: 5
+    price: $12.99
+    note: '- Pack of 50'
+    image: /images/costco yakult.avif
     icon: 🧋
-    image: ""
-    link: ""
+    link: ''
     example: true
