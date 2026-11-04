@@ -26,3 +26,12 @@ items:
     image: /images/6f6f3e11-b6f0-441f-9685-67cf8c76256b.jpeg
     icon: 🍱
     link: ''
+  - restaurant: Sushi Den
+    order: '- Salmon Roll, Salmon Avo Roll, Oshinko Roll, Miso Soup'
+    location: Vancouver, Chinatown Stadium
+    rating: 5
+    price: $14
+    note: '- Affordable'
+    image: /images/431CEE6C-9BA4-41B8-8660-F7A170500596_1_102_o.jpeg
+    icon: 🍣
+    link: ''
