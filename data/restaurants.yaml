@@ -1,0 +1,28 @@
+items:
+  - restaurant: Joe's Deli
+    order: Rose Pasta
+    location: ''
+    rating: 5
+    price: $14
+    note: ''
+    image: /images/9223A6FD-F3E0-45D3-B3DD-0AF7D4B386D1_1_105_c.jpeg
+    icon: 🍝
+    link: ''
+  - restaurant: IKEA Restaurant
+    order: Swedish Meatballs w/ Cured Salmon, Daim cake & Lingonberry Juice
+    location: ''
+    rating: 5
+    price: $22
+    note: ''
+    image: /images/IMG_3776.jpeg
+    icon: 🍽️
+    link: ''
+  - restaurant: Katsu San
+    order: Pork Cutlet Katsu w/ Miso Soup & Sesame Cabbage
+    location: ''
+    rating: 5
+    price: $21
+    note: ''
+    image: /images/6f6f3e11-b6f0-441f-9685-67cf8c76256b.jpeg
+    icon: 🍱
+    link: ''

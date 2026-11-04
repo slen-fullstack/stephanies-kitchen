@@ -1,0 +1,31 @@
+{{ $palette := slice "#F6C9C2" "#CFE3C6" "#C9DCEB" "#F3D58A" "#E9C9E3" "#F4B988" }}
+<section class="wrap finds-section" id="restaurants">
+  <div class="section-head">
+    <h2>Favourite restaurants</h2>
+    <p class="hand">My usual orders, every time.</p>
+  </div>
+  <div class="ticket-wall">
+    <div class="ticket-rail" aria-hidden="true"></div>
+    {{ with site.Data.restaurants.items }}
+    <ul class="ticket-grid">
+      {{ range $i, $r := . }}
+      <li class="ticket" style="{{ printf "--lid:%s" (index $palette (mod $i (len $palette))) | safeCSS }}">
+        <p class="ticket-no">Order No. {{ printf "%02d" (add $i 1) }}</p>
+        <span class="find-art">
+          {{ with $r.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ $r.icon | default "🍽️" }}</span>{{ end }}
+        </span>
+        <h3 class="ticket-name">{{ $r.restaurant }}</h3>
+        {{ with $r.location }}<p class="ticket-loc">{{ . }}</p>{{ end }}
+        {{ with $r.order }}<p class="ticket-order"><span>My order</span>{{ . }}</p>{{ end }}
+        {{ with $r.rating }}{{ $n := int (math.Min 5 (math.Max 0 (int .))) }}<p class="stars" aria-label="{{ $n }} out of 5 stars"><span aria-hidden="true">{{ strings.Repeat $n "★" }}<span class="stars-off">{{ strings.Repeat (sub 5 $n) "★" }}</span></span></p>{{ end }}
+        {{ with $r.note }}<p class="find-note">{{ . }}</p>{{ end }}
+        {{ with $r.price }}<p class="ticket-total"><span>Total</span><span>{{ . }}</span></p>{{ end }}
+        {{ with $r.link }}<a class="find-link" href="{{ . }}" target="_blank" rel="noopener">Find it →</a>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    {{ else }}
+    <p class="empty-shelf">No restaurants yet. Add your first one in the editor!</p>
+    {{ end }}
+  </div>
+</section>

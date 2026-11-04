@@ -87,6 +87,25 @@ collections:
               - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false }
               - { name: link, label: "Where to get it (a web address, optional)", widget: string, required: false }
               - { name: example, label: "Example item (shows an 'Example' tag)", widget: boolean, required: false, default: false }
+      - name: restaurants
+        label: Favourite restaurants
+        file: data/restaurants.yaml
+        fields:
+          - name: items
+            label: Restaurants
+            label_singular: Restaurant
+            widget: list
+            summary: "{{restaurant}} · {{order}}"
+            fields:
+              - { name: restaurant, label: Restaurant name, widget: string }
+              - { name: order, label: "What you order", widget: string, required: false }
+              - { name: location, label: "Location (e.g. Downtown Vancouver, optional)", widget: string, required: false }
+              - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
+              - { name: price, label: "Price (e.g. $14, optional)", widget: string, required: false }
+              - { name: note, label: Short note, widget: string, required: false }
+              - { name: image, label: Photo (optional), widget: image, required: false }
+              - { name: icon, label: "Little picture if there's no photo (paste one emoji)", widget: string, required: false }
+              - { name: link, label: "Link (Google Maps or website, optional)", widget: string, required: false }
       - name: drinks
         label: Favourite premade drinks
         file: data/drinks.yaml

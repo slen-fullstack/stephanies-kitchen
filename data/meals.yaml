@@ -9,33 +9,3 @@ items:
     icon: 🍚
     link: ''
     example: false
-  - name: Rose Pasta
-    brand: Joe's Deli
-    store: ''
-    rating: 5
-    price: $14
-    note: ''
-    image: /images/9223A6FD-F3E0-45D3-B3DD-0AF7D4B386D1_1_105_c.jpeg
-    icon: 🍝
-    link: ''
-    example: false
-  - name: IKEA Swedish Meatballs w/ Cured Salmon, Diahm cake, and Lingonberry Juice
-    brand: ''
-    store: IKEA Resturaunt
-    rating: 5
-    price: $22
-    note: ''
-    image: /images/IMG_3776.jpeg
-    icon: ''
-    link: ''
-    example: false
-  - name: Pork Cutlet Katsu/ w Miso Soup & Sesame Cabbage
-    brand: Katsu San
-    store: ''
-    rating: 5
-    price: $21
-    note: ''
-    image: /images/6f6f3e11-b6f0-441f-9685-67cf8c76256b.jpeg
-    icon: ''
-    link: ''
-    example: false

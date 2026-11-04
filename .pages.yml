@@ -123,3 +123,24 @@ content:
           - { name: icon, label: "Emoji if no photo", type: string }
           - { name: link, label: "Where to get it (optional)", type: string }
           - { name: example, label: "Example item", type: boolean }
+
+  - name: restaurants
+    label: Favourite restaurants
+    type: file
+    path: data/restaurants.yaml
+    format: yaml
+    fields:
+      - name: items
+        label: Restaurants
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.restaurant}" } }
+        fields:
+          - { name: restaurant, label: Restaurant name, type: string }
+          - { name: order, label: What you order, type: string }
+          - { name: location, label: "Location (optional)", type: string }
+          - { name: rating, label: "Rating (1 to 5)", type: number }
+          - { name: price, label: "Price (optional)", type: string }
+          - { name: note, label: Short note, type: string }
+          - { name: image, label: "Photo (optional)", type: image }
+          - { name: icon, label: "Emoji if no photo", type: string }
+          - { name: link, label: "Link (optional)", type: string }
