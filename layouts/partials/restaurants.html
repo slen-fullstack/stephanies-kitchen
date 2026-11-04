@@ -10,6 +10,7 @@
     <ul class="ticket-grid">
       {{ range $i, $r := . }}
       <li class="ticket" style="{{ printf "--lid:%s" (index $palette (mod $i (len $palette))) | safeCSS }}">
+        {{ with $r.tag }}<span class="item-tag">{{ . }}</span>{{ end }}
         <p class="ticket-no">Order No. {{ printf "%02d" (add $i 1) }}</p>
         <span class="find-art">
           {{ with $r.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ $r.icon | default "🍽️" }}</span>{{ end }}

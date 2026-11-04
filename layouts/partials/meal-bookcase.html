@@ -1,0 +1,33 @@
+{{ $palette := slice "#F6C9C2" "#CFE3C6" "#C9DCEB" "#F3D58A" "#E9C9E3" "#F4B988" }}
+{{ $decos := slice "🧺" "🥡" "🛒" "🍶" }}
+{{ $items := site.Data.meals.items | default slice }}
+{{ $stores := slice }}
+{{ range $items }}{{ $s := .store | default "More favourites" }}{{ if not (in $stores $s) }}{{ $stores = $stores | append $s }}{{ end }}{{ end }}
+<div class="bookcase">
+  {{ range $si, $store := $stores }}
+  {{ $books := slice }}
+  {{ range $i, $m := $items }}{{ if eq ($m.store | default "More favourites") $store }}{{ $books = $books | append (dict "i" $i "m" $m) }}{{ end }}{{ end }}
+  <div class="shelf">
+    <p class="shelf-label"><span>{{ $store }}</span><small>{{ len $books }}</small></p>
+    <div class="shelf-books">
+      {{ range $books }}
+        {{ $m := .m }}{{ $i := .i }}
+        {{ $n := len $m.name }}
+        {{ $color := index $palette (mod (add $i 1) (len $palette)) }}
+        {{ $h := add 160 (mul (mod $n 4) 13) }}
+        {{ $lines := math.Ceil (div (float $n) 14) }}{{ $w := math.Max (add 46 (mul (mod $n 3) 6)) (add 14 (mul $lines 17)) | int }}
+        {{ $slug := printf "meal-%d" $i }}
+        <a class="spine" href="{{ "finds/" | relURL }}#meals" data-recipe="{{ $slug }}" data-full-label="See all my favourite finds →" data-search="{{ lower (print $m.name " " $m.brand " " $m.store " " $m.note " " $m.tag " premade meal") }}" style="{{ printf "--spine:%s;--h:%dpx;--w:%dpx" $color $h $w | safeCSS }}">
+          <span class="spine-title">{{ $m.name }}</span>
+          <span class="spine-icon" aria-hidden="true">{{ $m.icon | default "🍱" }}</span>
+        </a>
+        <template id="book-{{ $slug }}">{{ partial "meal-book.html" (dict "item" $m "color" $color) }}</template>
+      {{ end }}
+      <span class="bookend" aria-hidden="true"></span>
+      <span class="shelf-deco" aria-hidden="true">{{ index $decos (mod $si (len $decos)) }}</span>
+    </div>
+  </div>
+  {{ else }}
+  <div class="shelf"><div class="shelf-books"><p class="empty-shelf">No premade meals yet. Add one in the editor!</p><span class="bookend" aria-hidden="true"></span></div></div>
+  {{ end }}
+</div>

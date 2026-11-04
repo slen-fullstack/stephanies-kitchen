@@ -9,7 +9,7 @@
       <label class="search" for="recipe-search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         <span class="sr-only">Search recipes</span>
-        <input id="recipe-search" type="search" placeholder="Search a recipe or ingredient…" autocomplete="off">
+        <input id="recipe-search" type="search" placeholder="Search recipes, ingredients or meals…" autocomplete="off">
       </label>
       <p class="search-status" id="search-status" aria-live="polite"></p>
     </div>
@@ -20,11 +20,16 @@
 
 <section class="wrap shelf-section" id="shelf">
   <div class="section-head">
-    <h2>The recipe shelf</h2>
+    <h2>The bookshelf</h2>
     <p class="hand">Pull a book off the shelf to open it.</p>
   </div>
   {{ if site.Params.sampleRecipes }}<p class="sample-note">Psst! These are sample recipes. Swap in your own anytime.</p>{{ end }}
-  {{ partial "bookcase.html" $recipes }}
+  <div class="shelf-tabs" role="group" aria-label="Choose a bookshelf">
+    <button type="button" class="shelf-tab" data-case="recipes" aria-pressed="true">📖 Recipes</button>
+    <button type="button" class="shelf-tab" data-case="meals" aria-pressed="false">🍱 Premade meals</button>
+  </div>
+  <div class="case" data-case-panel="recipes">{{ partial "bookcase.html" $recipes }}</div>
+  <div class="case" data-case-panel="meals" hidden>{{ partial "meal-bookcase.html" . }}</div>
 </section>
 
 <section class="wrap finds-teaser">

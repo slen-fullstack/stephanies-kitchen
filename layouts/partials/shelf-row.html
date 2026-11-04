@@ -7,7 +7,7 @@
       {{ $n := len $p.Title }}
       {{ $color := $p.Params.color | default (index $palette (mod $n (len $palette))) }}
       {{ $h := add 160 (mul (mod $n 4) 13) }}
-      {{ $w := add 46 (mul (mod $n 3) 6) }}
+      {{ $lines := math.Ceil (div (float $n) 14) }}{{ $w := math.Max (add 46 (mul (mod $n 3) 6)) (add 14 (mul $lines 17)) | int }}
       {{ $slug := $p.File.ContentBaseName | urlize }}
       {{ $search := print $p.Title " " $p.Params.category }}
       {{ range $p.Params.ingredients }}{{ $search = print $search " " .item }}{{ end }}

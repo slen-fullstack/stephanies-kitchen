@@ -51,12 +51,12 @@
   var full = dlg && dlg.querySelector('.full-link');
   if (full && framed) full.hidden = true;
 
-  function openBook(slug, href) {
+  function openBook(slug, href, label) {
     var t = document.getElementById('book-' + slug);
     if (!t || !dlg || typeof dlg.showModal !== 'function') return false;
     slot.replaceChildren(t.content.cloneNode(true));
     initBook(slot.querySelector('.book'));
-    if (full) full.href = href;
+    if (full) { full.href = href; full.textContent = label || 'Open the full recipe page →'; }
     dlg.showModal();
     slot.scrollTop = 0;
     return true;
@@ -65,13 +65,26 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-recipe]');
     if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-    if (openBook(a.dataset.recipe, a.href)) e.preventDefault();
+    if (openBook(a.dataset.recipe, a.href, a.dataset.fullLabel)) e.preventDefault();
   });
 
   if (dlg) {
     dlg.addEventListener('click', function (e) {
       if (e.target === dlg || e.target.closest('[data-close]')) dlg.close();
     });
+  }
+
+  // Bookshelf tabs: Recipes / Premade meals
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.shelf-tab'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[data-case-panel]'));
+  function showCase(name) {
+    tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.case === name)); });
+    panels.forEach(function (p) { p.hidden = p.dataset.casePanel !== name; });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { showCase(t.dataset.case); }); });
+  function activeCase() {
+    var on = tabs.filter(function (t) { return t.getAttribute('aria-pressed') === 'true'; })[0];
+    return on ? on.dataset.case : null;
   }
 
   // Search the shelf
@@ -81,15 +94,24 @@
     var spines = Array.prototype.slice.call(document.querySelectorAll('.spine'));
     input.addEventListener('input', function () {
       var q = input.value.trim().toLowerCase();
-      var n = 0;
+      var n = 0, perCase = {};
       spines.forEach(function (s) {
         var hit = !q || s.dataset.search.indexOf(q) !== -1;
         s.classList.toggle('dim', !hit);
         s.classList.toggle('match', !!q && hit);
-        if (q && hit) n++;
+        if (q && hit) {
+          n++;
+          var panel = s.closest('[data-case-panel]');
+          if (panel) perCase[panel.dataset.casePanel] = (perCase[panel.dataset.casePanel] || 0) + 1;
+        }
       });
+      var cur = activeCase();
+      if (q && cur && !perCase[cur]) {
+        var other = Object.keys(perCase)[0];
+        if (other) showCase(other);
+      }
       if (status) {
-        status.textContent = !q ? '' : n ? n + (n === 1 ? ' recipe' : ' recipes') + ' found on the shelf' : 'Nothing matches yet. Try another ingredient!';
+        status.textContent = !q ? '' : n ? n + (n === 1 ? ' recipe' : ' recipes') + ' found' : 'Nothing matches yet. Try another ingredient!';
       }
     });
     input.addEventListener('keydown', function (e) {

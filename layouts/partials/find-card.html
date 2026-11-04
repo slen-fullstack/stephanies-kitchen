@@ -1,7 +1,7 @@
 {{ $palette := slice "#F6C9C2" "#CFE3C6" "#C9DCEB" "#F3D58A" "#E9C9E3" "#F4B988" }}
 {{ $it := .item }}
 <li class="find find--{{ .kind }}" style="{{ printf "--lid:%s" (index $palette (mod .i (len $palette))) | safeCSS }}">
-  {{ if $it.example }}<span class="example-tag">Example</span>{{ end }}
+  {{ with $it.tag }}<span class="item-tag">{{ . }}</span>{{ else }}{{ if $it.example }}<span class="example-tag">Example</span>{{ end }}{{ end }}
   <span class="find-art">
     {{ with $it.image }}<img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="" loading="lazy">{{ else }}<span aria-hidden="true">{{ $it.icon | default .icon }}</span>{{ end }}
   </span>

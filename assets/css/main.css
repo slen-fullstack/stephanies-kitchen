@@ -500,3 +500,29 @@ h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.15;
 .ticket-order span { display: block; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--berry); margin-bottom: 2px; }
 .ticket-total { margin: 6px 0 0; padding-top: 8px; border-top: 2px dashed var(--line); display: flex; justify-content: space-between; font-weight: 800; font-variant-numeric: tabular-nums; }
 .ticket-total span:first-child { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); align-self: center; }
+
+/* Custom tags on finds */
+.item-tag {
+  position: absolute; top: 8px; right: 8px; z-index: 1;
+  max-width: calc(100% - 16px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: .72rem; font-weight: 800; letter-spacing: .06em;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--butter); color: var(--spine-ink);
+  box-shadow: 0 0 0 2px var(--paper), 0 3px 6px rgba(0, 0, 0, .18);
+}
+.ticket .item-tag { top: 26px; }
+.item-tag--inline { position: static; display: inline-block; }
+
+/* Bookshelf tabs */
+.shelf-tabs { display: inline-flex; gap: 6px; padding: 5px; margin-bottom: 16px; border-radius: 999px; background: color-mix(in srgb, var(--wood) 25%, var(--paper)); }
+.shelf-tab { font: 700 1rem var(--f-body); padding: 8px 18px; border: 0; border-radius: 999px; cursor: pointer; background: transparent; color: var(--ink); }
+.shelf-tab[aria-pressed="true"] { background: var(--ink); color: var(--paper); box-shadow: 0 3px 0 var(--butter-deep); }
+.shelf-tab:hover:not([aria-pressed="true"]) { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.bookcase:has(> .shelf:only-child) { grid-template-columns: 1fr; }
+
+/* Premade meal book */
+.stars--big { font-size: 1.5rem; }
+.meal-details { margin: 0 0 22px; display: grid; gap: 0; }
+.meal-details div { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.meal-details dt { font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.meal-details dd { margin: 0; font-weight: 700; text-align: right; }

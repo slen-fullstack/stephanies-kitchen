@@ -79,6 +79,7 @@ collections:
             fields:
               - { name: name, label: Name, widget: string }
               - { name: brand, label: Brand, widget: string, required: false }
+              - { name: tag, label: "Tag (optional, e.g. Must try, New, Costco find)", widget: string, required: false }
               - { name: store, label: "Where you buy it (e.g. Costco)", widget: string, required: false }
               - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
               - { name: price, label: "Price (e.g. $6.99, optional)", widget: string, required: false }
@@ -99,6 +100,7 @@ collections:
             fields:
               - { name: restaurant, label: Restaurant name, widget: string }
               - { name: order, label: "What you order", widget: string, required: false }
+              - { name: tag, label: "Tag (optional, e.g. Must try, New, Costco find)", widget: string, required: false }
               - { name: location, label: "Location (e.g. Downtown Vancouver, optional)", widget: string, required: false }
               - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
               - { name: price, label: "Price (e.g. $14, optional)", widget: string, required: false }
@@ -118,6 +120,7 @@ collections:
             fields:
               - { name: name, label: Name, widget: string }
               - { name: brand, label: Brand, widget: string, required: false }
+              - { name: tag, label: "Tag (optional, e.g. Must try, New, Costco find)", widget: string, required: false }
               - { name: store, label: "Where you buy it (e.g. Costco)", widget: string, required: false }
               - { name: rating, label: "Rating (1 to 5 stars)", widget: number, value_type: int, min: 1, max: 5, required: false }
               - { name: price, label: "Price (e.g. $6.99, optional)", widget: string, required: false }

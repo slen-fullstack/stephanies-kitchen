@@ -93,6 +93,7 @@ content:
         fields:
           - { name: name, label: Name, type: string }
           - { name: brand, label: Brand, type: string }
+          - { name: tag, label: "Tag (optional)", type: string }
           - { name: store, label: "Where you buy it", type: string }
           - { name: rating, label: "Rating (1 to 5)", type: number }
           - { name: price, label: "Price (optional)", type: string }
@@ -115,6 +116,7 @@ content:
         fields:
           - { name: name, label: Name, type: string }
           - { name: brand, label: Brand, type: string }
+          - { name: tag, label: "Tag (optional)", type: string }
           - { name: store, label: "Where you buy it", type: string }
           - { name: rating, label: "Rating (1 to 5)", type: number }
           - { name: price, label: "Price (optional)", type: string }
@@ -137,6 +139,7 @@ content:
         fields:
           - { name: restaurant, label: Restaurant name, type: string }
           - { name: order, label: What you order, type: string }
+          - { name: tag, label: "Tag (optional)", type: string }
           - { name: location, label: "Location (optional)", type: string }
           - { name: rating, label: "Rating (1 to 5)", type: number }
           - { name: price, label: "Price (optional)", type: string }
