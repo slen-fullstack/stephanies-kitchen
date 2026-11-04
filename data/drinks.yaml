@@ -9,3 +9,13 @@ items:
     icon: 🧃
     link: ''
     example: false
+  - name: Coke Zero
+    brand: Coco Cola
+    store: Costco
+    rating: 5
+    price: $18.53
+    note: ''
+    image: /images/coke zero.webp
+    icon: 🧃
+    link: ''
+    example: false
