@@ -1,11 +1,21 @@
 items:
-  - name: Butter Chicken with Rice
-    brand: Brand name
+  - name: Steelhead Salmon Poké w/ Sushi Rice
+    brand: DOM Reserve
     store: Grocery store
     rating: 5
-    price: "$6.99"
-    note: "This is an example. Edit or delete it in the editor!"
-    icon: 🍛
-    image: ""
-    link: ""
+    price: $22
+    note: '- 5 portions'
+    image: /images/DCB61F9B-C8D7-47BD-AD4A-F4454AD3D7AC_1_105_c.jpeg
+    icon: 🍚
+    link: ''
     example: true
+  - name: Rose Pasta
+    brand: Joe's Deli
+    store: ''
+    rating: 5
+    price: $14
+    note: ''
+    image: /images/9223A6FD-F3E0-45D3-B3DD-0AF7D4B386D1_1_105_c.jpeg
+    icon: 🍝
+    link: ''
+    example: false
